@@ -3,136 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sandra Pilarczyk — In the Flemish Ardennes</title>
+<title>In the Flemish Ardennes — Join Free</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Instrument+Sans:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ─── 5-COLOUR PALETTE ───────────────────────────────────────
-     #FDFAF5  Parchment    — dominant background
-     #1A1A17  Ink          — primary text / dark surfaces
-     #4D7050  Herb         — accent (sage green)
-     #8C8880  Stone        — muted / secondary text
-     #EAE6DE  Linen        — surface tint / borders
-  ──────────────────────────────────────────────────────────── */
   :root {
-    --parchment: #FDFAF5;
-    --ink:       #1A1A17;
-    --herb:      #4D7050;
-    --stone:     #8C8880;
-    --linen:     #EAE6DE;
-    --border:    rgba(26,26,23,0.10);
-
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans:  'DM Sans', sans-serif;
-
-    /* TYPE SCALE */
-    --text-xs:   0.72rem;   /* eyebrows, labels   — 11.5px */
-    --text-sm:   0.85rem;   /* captions, metadata — 13.6px */
-    --text-base: 1rem;      /* body                — 16px  */
-    --text-lg:   1.125rem;  /* lead / tagline      — 18px  */
-
-    /* SPACING */
-    --section-pad: 8rem 2.5rem;
-    --section-pad-mobile: 5rem 1.5rem;
+    --bg:       #F8F5F0;
+    --ink:      #1E1C18;
+    --herb:     #3D6142;
+    --stone:    #7A7570;
+    --linen:    #EDE9E2;
+    --white:    #FDFCF9;
+    --serif:    'Playfair Display', Georgia, serif;
+    --sans:     'Instrument Sans', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--parchment);
+    background: var(--bg);
     color: var(--ink);
     font-family: var(--sans);
     font-weight: 300;
-    font-size: var(--text-base);
-    line-height: 1.9;
+    font-size: 16px;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ─── SCROLL-REVEAL ─────────────────────────────────────── */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.75s ease, transform 0.75s ease;
+  /* ── UTILITIES ─────────────────────────────────── */
+  .container {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
   }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.35s; }
-  .reveal-d4 { transition-delay: 0.5s; }
 
-  /* ─── NAV ────────────────────────────────────────────────── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
+  .divider {
+    width: 48px;
+    height: 1.5px;
+    background: var(--herb);
+    margin: 0 auto;
+  }
+
+  /* ── CTA BUTTON ────────────────────────────────── */
+  .cta-btn {
+    display: inline-flex;
     align-items: center;
-    padding: 1.4rem 2.5rem;
-    background: rgba(253,250,245,0.93);
-    backdrop-filter: blur(10px);
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  nav .wordmark {
-    font-family: var(--serif);
-    font-size: 1.05rem;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--herb);
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 0.875rem;
     font-weight: 400;
-    letter-spacing: 0.03em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  nav a.join-nav {
-    font-size: var(--text-xs);
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--herb);
     text-decoration: none;
-    border-bottom: 0.5px solid var(--herb);
-    padding-bottom: 2px;
-    transition: opacity 0.2s;
+    padding: 1.1rem 2.5rem;
+    min-height: 54px;
+    min-width: 220px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
   }
-  nav a.join-nav:hover { opacity: 0.6; }
+  .cta-btn:hover { background: #2e4a32; transform: translateY(-2px); }
+  .cta-btn:active { transform: translateY(0); }
+  .cta-btn svg {
+    width: 14px; height: 14px;
+    stroke: currentColor; fill: none; stroke-width: 2;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .cta-btn:hover svg { transform: translateX(3px); }
 
-  /* ─── HERO ───────────────────────────────────────────────── */
+  /* ── HERO ──────────────────────────────────────── */
   .hero {
     min-height: 100svh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 68px;
-  }
-
-  .hero-left {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6rem 3.5rem 6rem 2.5rem;
-    gap: 0;
+    padding: 5rem 1.5rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
   }
 
-  .hero-eyebrow {
-    font-size: var(--text-xs);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+  .hero {
+    background-image: url('farm.jpeg');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(248,245,240,0.92) 0%,
+      rgba(248,245,240,0.88) 50%,
+      rgba(248,245,240,0.95) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-wordmark {
+    font-family: var(--serif);
+    font-size: 0.85rem;
+    font-style: italic;
     color: var(--stone);
-    margin-bottom: 2.25rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 3.5rem;
   }
 
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(3rem, 5.5vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.02;
-    letter-spacing: -0.015em;
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     color: var(--ink);
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.75rem;
   }
 
   .hero h1 em {
@@ -140,632 +135,530 @@
     color: var(--herb);
   }
 
-  .hero-tagline {
-    font-size: var(--text-lg);
-    font-weight: 300;
+  .hero-sub {
+    font-size: 1.05rem;
     color: var(--stone);
-    line-height: 1.85;
-    margin-bottom: 3rem;
-    max-width: 400px;
+    line-height: 1.75;
+    max-width: 420px;
+    margin: 0 auto 2.5rem;
   }
 
-  .hero-tagline strong {
-    color: var(--ink);
-    font-weight: 400;
-  }
+  .hero-sub strong { color: var(--ink); font-weight: 400; }
 
-  /* Hero CTA float animation */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-5px); }
-  }
-  .btn-float { animation: float 3.5s ease-in-out infinite; }
-
-  .hero-right {
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-right img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 20%;
-    display: block;
-  }
-
-  /* ─── BUTTONS ────────────────────────────────────────────── */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    background: var(--ink);
-    color: var(--parchment);
-    text-decoration: none;
-    font-family: var(--sans);
-    font-size: var(--text-xs);
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 1.05rem 2.25rem;
-    border: none;
-    cursor: pointer;
-    transition: background 0.25s, transform 0.15s;
-    align-self: flex-start;
-  }
-  .btn-primary:hover { background: var(--herb); transform: translateY(-1px); }
-  .btn-primary svg {
-    width: 13px; height: 13px;
-    stroke: currentColor; fill: none; stroke-width: 2;
-    flex-shrink: 0;
-    transition: transform 0.2s;
-  }
-  .btn-primary:hover svg { transform: translateX(3px); }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    background: transparent;
-    color: var(--ink);
-    text-decoration: none;
-    font-family: var(--sans);
-    font-size: var(--text-xs);
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 1.05rem 2.25rem;
-    border: 0.5px solid var(--ink);
-    cursor: pointer;
-    transition: background 0.25s, color 0.25s;
-  }
-  .btn-outline:hover { background: var(--ink); color: var(--parchment); }
-
-  /* ─── DIVIDER ────────────────────────────────────────────── */
-  .divider { width: 100%; height: 0.5px; background: var(--border); }
-
-  /* ─── SECTIONS ───────────────────────────────────────────── */
-  section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: var(--section-pad);
-  }
-
-  .section-label {
-    font-size: var(--text-xs);
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--stone);
-    margin-bottom: 4rem;
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 0.5px;
-    background: var(--border);
-  }
-
-  /* ─── WHAT YOU GET ───────────────────────────────────────── */
-  .what-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .what-left h2 {
-    font-family: var(--serif);
-    font-size: clamp(2.2rem, 3.5vw, 3.4rem);
-    font-weight: 300;
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-    margin-bottom: 2rem;
-  }
-  .what-left h2 em { font-style: italic; color: var(--herb); }
-
-  .what-left p {
-    font-size: var(--text-base);
-    line-height: 1.9;
-    color: var(--stone);
-    margin-bottom: 1.1rem;
-  }
-  .what-left p:last-child { margin-bottom: 0; }
-  .what-left p strong { color: var(--ink); font-weight: 400; }
-
-  .what-right {
+  .hero-cta-wrap {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    align-items: center;
+    gap: 0.75rem;
   }
 
-  .get-item {
+  .hero-reassure {
+    font-size: 0.78rem;
+    color: var(--stone);
+    letter-spacing: 0.04em;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    gap: 1.5rem;
-    align-items: flex-start;
-    padding: 1.75rem 0;
-    border-bottom: 0.5px solid var(--border);
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--stone);
   }
-  .get-item:first-child { padding-top: 0; }
-  .get-item:last-child { border-bottom: none; }
 
-  .get-icon {
-    font-size: 1.15rem;
-    flex-shrink: 0;
-    margin-top: 0.15rem;
-    width: 26px;
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+  .hero-scroll svg {
+    width: 16px; height: 16px;
+    stroke: var(--stone); fill: none; stroke-width: 1.5;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  /* ── PROMISE ───────────────────────────────────── */
+  .promise {
+    background: var(--herb);
+    padding: 4rem 1.5rem;
     text-align: center;
   }
 
-  .get-text strong {
-    display: block;
-    font-size: var(--text-base);
+  .promise p {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 4vw, 1.7rem);
     font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 0.35rem;
-    letter-spacing: 0.01em;
-    line-height: 1.4;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0 auto;
   }
 
-  .get-text span {
-    font-size: var(--text-sm);
+  .promise p span {
+    font-style: normal;
+    opacity: 0.75;
+    font-size: 0.85em;
+  }
+
+  /* ── BENEFITS ──────────────────────────────────── */
+  .benefits {
+    padding: 5rem 1.5rem;
+  }
+
+  .benefits-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .benefits-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .benefits-header h2 em { font-style: italic; color: var(--herb); }
+
+  .benefits-header p {
+    font-size: 0.95rem;
+    color: var(--stone);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .benefit {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 2rem 0;
+    border-bottom: 0.5px solid var(--linen);
+  }
+  .benefit:first-child { padding-top: 0; }
+  .benefit:last-child { border-bottom: none; }
+
+  .benefit-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--linen);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .benefit-text strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .benefit-text p {
+    font-size: 0.92rem;
     color: var(--stone);
     line-height: 1.75;
   }
 
-  /* ─── PHOTO STRIP ────────────────────────────────────────── */
-  .photo-strip {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2.5rem 8rem;
+  /* ── TESTIMONIAL ───────────────────────────────── */
+  .testimonial {
+    background: var(--linen);
+    padding: 4.5rem 1.5rem;
+    text-align: center;
   }
 
-  .photo-strip img {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* ─── COMMUNITY CTA ──────────────────────────────────────── */
-  .cta-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .cta-block h2 {
+  .testimonial blockquote {
     font-family: var(--serif);
-    font-size: clamp(2.2rem, 4vw, 3.8rem);
-    font-weight: 300;
-    line-height: 1.06;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.65;
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    position: relative;
   }
-  .cta-block h2 em { font-style: italic; color: var(--herb); }
 
-  .cta-right {
+  .testimonial blockquote::before {
+    content: '\201C';
+    font-size: 4rem;
+    color: var(--herb);
+    opacity: 0.25;
+    line-height: 0;
+    position: absolute;
+    top: 0.5rem;
+    left: -0.5rem;
+    font-family: var(--serif);
+  }
+
+  .testimonial-author {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    align-items: center;
+    gap: 0.3rem;
   }
 
-  .community-tiers {
+  .testimonial-name {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+
+  .testimonial-detail {
+    font-size: 0.78rem;
+    color: var(--stone);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── OBJECTION KILLER ──────────────────────────── */
+  .objection {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    border-top: 0.5px solid var(--linen);
+    border-bottom: 0.5px solid var(--linen);
+  }
+
+  .objection p {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    font-weight: 400;
+    line-height: 1.55;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .objection p em { font-style: italic; color: var(--herb); }
+  .objection p strong { font-weight: 500; }
+
+  /* ── FAQ ───────────────────────────────────────── */
+  .faq {
+    padding: 5rem 1.5rem;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 400;
+  }
+
+  .faq-list {
+    max-width: 540px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 0;
   }
 
-  .tier {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-    padding: 1.1rem 0;
-    border-bottom: 0.5px solid var(--border);
-  }
-  .tier:first-child { padding-top: 0; }
-  .tier:last-child { border-bottom: none; }
-
-  .tier-name {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: var(--ink);
-    min-width: 85px;
+  .faq-item {
+    border-bottom: 0.5px solid var(--linen);
   }
 
-  .tier-desc { color: var(--stone); font-size: var(--text-sm); flex: 1; line-height: 1.6; }
-
-  .tier-price {
-    font-size: var(--text-xs);
-    color: var(--herb);
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-  }
-
-  .animals-note {
-    font-size: var(--text-sm);
-    color: var(--stone);
-    line-height: 1.8;
-    font-style: italic;
-    border-left: 2px solid var(--linen);
-    padding-left: 1.25rem;
-  }
-
-  /* ─── ABOUT ──────────────────────────────────────────────── */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .about-image-slot img {
+  .faq-question {
     width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
-
-  .about-text {
-    display: flex;
-    flex-direction: column;
-    gap: 1.75rem;
-    padding-top: 0.5rem;
-  }
-
-  .about-text h2 {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 300;
-    line-height: 1.08;
-    letter-spacing: -0.01em;
-  }
-  .about-text h2 em { font-style: italic; color: var(--herb); }
-
-  .about-text p {
-    font-size: var(--text-base);
-    line-height: 1.9;
-    color: var(--stone);
-  }
-  .about-text p strong { color: var(--ink); font-weight: 400; }
-
-  .about-detail {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-top: 1.5rem;
-    border-top: 0.5px solid var(--border);
-  }
-  .about-detail span { font-size: var(--text-sm); color: var(--stone); letter-spacing: 0.04em; }
-  .about-detail a {
-    font-size: var(--text-sm);
-    color: var(--herb);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-  }
-  .about-detail a:hover { text-decoration: underline; }
-
-  /* ─── CONTACT ────────────────────────────────────────────── */
-  .contact-block {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  .contact-block h2 {
-    font-family: var(--serif);
-    font-size: clamp(2.4rem, 4.5vw, 4.2rem);
-    font-weight: 300;
-    line-height: 1.06;
-    letter-spacing: -0.015em;
-  }
-  .contact-block h2 em { font-style: italic; color: var(--herb); }
-
-  .contact-block p {
-    font-size: var(--text-base);
-    color: var(--stone);
-    max-width: 360px;
-    line-height: 1.85;
-  }
-
-  .contact-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  /* ─── FOOTER ─────────────────────────────────────────────── */
-  footer {
-    border-top: 0.5px solid var(--border);
-    padding: 2.5rem 2.5rem;
+    background: none;
+    border: none;
+    padding: 1.4rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  footer span { font-size: var(--text-sm); color: var(--stone); letter-spacing: 0.04em; }
-  footer a { font-size: var(--text-sm); color: var(--stone); text-decoration: none; letter-spacing: 0.04em; }
-  footer a:hover { color: var(--ink); }
-
-  /* ─── MOBILE ─────────────────────────────────────────────── */
-  @media (max-width: 720px) {
-    :root { --section-pad: var(--section-pad-mobile); }
-
-    nav { padding: 1rem 1.5rem; }
-
-    .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-left { padding: 5.5rem 1.5rem 3rem; }
-    .hero-right { height: 65vw; }
-
-    .what-grid,
-    .cta-block,
-    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-
-    .photo-strip { grid-template-columns: 1fr; padding: 0 1.5rem 5rem; }
-
-    .contact-buttons { flex-direction: column; align-items: center; }
-
-    footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
-  }
-
-
-  /* ─── WHAT CTA ───────────────────────────────────────────── */
-  .what-cta {
-    margin-top: 4rem;
-    padding-top: 3rem;
-    border-top: 0.5px solid var(--border);
-  }
-
-  /* ─── STRIP CAPTION ─────────────────────────────────────── */
-  .strip-caption {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1.5rem 2.5rem 0;
-    font-size: var(--text-sm);
-    color: var(--stone);
-    font-style: italic;
-    letter-spacing: 0.03em;
-  }
-
-  /* ─── FREE TIER BLOCK ────────────────────────────────────── */
-  .free-tier-block {
-    background: var(--linen);
-    padding: 1.75rem 2rem;
-    margin-bottom: 1.25rem;
-  }
-  .free-tier-label {
-    font-size: var(--text-xs);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--herb);
-    margin-bottom: 0.6rem;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--sans);
+    font-size: 0.95rem;
     font-weight: 400;
+    color: var(--ink);
+    line-height: 1.4;
   }
-  .free-tier-desc {
-    font-size: var(--text-sm);
+
+  .faq-question svg {
+    width: 16px; height: 16px;
+    stroke: var(--stone); fill: none; stroke-width: 2;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.open .faq-question svg {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-answer-inner {
+    padding-bottom: 1.4rem;
+    font-size: 0.9rem;
     color: var(--stone);
     line-height: 1.8;
   }
 
-  .paid-tiers-hint {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    margin-bottom: 0.5rem;
-  }
-  .paid-tiers-hint span:first-child {
-    font-size: var(--text-xs);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--stone);
-  }
-  .paid-tiers-hint span:last-child {
-    font-size: var(--text-sm);
-    color: var(--stone);
-  }
-
-  /* ─── ABOUT CTA ──────────────────────────────────────────── */
-  .about-cta {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding-top: 1.5rem;
-    border-top: 0.5px solid var(--border);
-  }
-  .about-cta-sub {
-    font-size: var(--text-sm);
-    color: var(--stone);
-    letter-spacing: 0.04em;
-  }
-
-  /* ─── CONTACT EMAIL LINK ─────────────────────────────────── */
-  .contact-email-link {
-    font-size: var(--text-sm);
-    color: var(--stone);
+  .faq-answer-inner a {
+    color: var(--herb);
     text-decoration: none;
+  }
+  .faq-answer-inner a:hover { text-decoration: underline; }
+
+  /* ── FINAL CTA ─────────────────────────────────── */
+  .final-cta {
+    background: var(--ink);
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+
+  .final-cta h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+  }
+
+  .final-cta h2 em { font-style: italic; color: #8fb893; }
+
+  .final-cta p {
+    font-size: 0.95rem;
+    color: rgba(253,252,249,0.6);
+    max-width: 360px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
+  }
+
+  .final-cta .cta-btn {
+    background: var(--white);
+    color: var(--ink);
+  }
+  .final-cta .cta-btn:hover { background: #EDE9E2; }
+
+  .final-cta-reassure {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    color: rgba(253,252,249,0.4);
     letter-spacing: 0.04em;
   }
-  .contact-email-link:hover { color: var(--ink); }
-  /* ─── HERO LOAD ANIMATIONS ───────────────────────────────── */
+
+  /* ── FOOTER ────────────────────────────────────── */
+  footer {
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--stone);
+    letter-spacing: 0.04em;
+    border-top: 0.5px solid var(--linen);
+  }
+
+  /* ── REVEAL ANIMATIONS ─────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-d1 { transition-delay: 0.1s; }
+  .reveal-d2 { transition-delay: 0.2s; }
+  .reveal-d3 { transition-delay: 0.3s; }
+
+  /* ── HERO LOAD ─────────────────────────────────── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .load-1 { animation: fadeUp 0.9s ease both; }
-  .load-2 { animation: fadeUp 0.9s ease 0.15s both; }
-  .load-3 { animation: fadeUp 0.9s ease 0.3s both; }
-  .load-4 { animation: fadeUp 0.9s ease 0.5s both; }
+  .l1 { animation: fadeUp 0.8s ease both; }
+  .l2 { animation: fadeUp 0.8s 0.15s ease both; }
+  .l3 { animation: fadeUp 0.8s 0.3s ease both; }
+  .l4 { animation: fadeUp 0.8s 0.45s ease both; }
+  .l5 { animation: fadeUp 0.8s 0.6s ease both; }
 </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="wordmark">In the Flemish Ardennes</a>
-  <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="join-nav" target="_blank">Join the community ↗</a>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow load-1">Oudenaarde, Flemish Ardennes</p>
-    <h1 class="load-2">Stopped saving reels.<br>Started making things.<br><em>Took one weekend.</em></h1>
-    <p class="hero-tagline load-3">
-      Still watching Netflix.<br>
-      Still drinking wine.<br><br>
-      <strong>Just also making things from the weeds in your garden.</strong>
+<!-- ── HERO ──────────────────────────────────────── -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-wordmark l1">In the Flemish Ardennes</p>
+    <h1 class="l2">
+      Stopped saving reels.<br>
+      Started making things.<br>
+      <em>Took one weekend.</em>
+    </h1>
+    <p class="hero-sub l3">
+      A free community for busy people who want to grow something, make something, and actually <strong>use what's already in their garden.</strong>
     </p>
-    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary btn-float load-4" target="_blank">
-      Come in
-      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-  </div>
-  <div class="hero-right">
-    <img src="farm.jpeg" alt="Raised beds, Flemish Ardennes">
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- WHAT YOU GET -->
-<section id="community">
-  <p class="section-label reveal">What this is</p>
-  <div class="what-grid">
-    <div class="what-left reveal reveal-d1">
-      <h2>No lifestyle overhaul.<br>No <em>flower power.</em></h2>
-      <p>Just the plants at your feet and what the science says about them.</p>
-      <p>Make something useful from your garden this weekend.</p>
-    </div>
-    <div class="what-right reveal reveal-d2">
-      <div class="get-item">
-        <span class="get-icon">🌿</span>
-        <div class="get-text">
-          <strong>The Honest Weed Guide</strong>
-          <span>What the science actually says about the plants in your garden. No hype, no wishful thinking.</span>
-        </div>
-      </div>
-      <div class="get-item">
-        <span class="get-icon">🧪</span>
-        <div class="get-text">
-          <strong>The Arrival Oil</strong>
-          <span>Make your first herb oil this weekend. One plant. One morning.</span>
-        </div>
-      </div>
-      <div class="get-item">
-        <span class="get-icon">🌼</span>
-        <div class="get-text">
-          <strong>Weekend Garden Rituals</strong>
-          <span>One project, one weekend, something real to show for it.</span>
-        </div>
-      </div>
-      <div class="get-item">
-        <span class="get-icon">💬</span>
-        <div class="get-text">
-          <strong>Sandra — here every day</strong>
-          <span>Answering everything. Real questions, real answers.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="what-cta reveal reveal-d3">
-    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
-      Start for free — no card needed
-      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PHOTO STRIP -->
-<div class="photo-strip">
-  <img src="rosemary.jpeg" alt="Fresh rosemary drying" class="reveal reveal-d1">
-  <img src="balm.jpeg" alt="Calendula healing balm" class="reveal reveal-d2">
-  <p class="strip-caption reveal">Rosemary from the garden. Balm from the rosemary. You can do this too.</p>
-</div>
-
-<div class="divider"></div>
-
-<!-- COMMUNITY CTA -->
-<section id="join">
-  <p class="section-label reveal">The Flemish Ardennes Life — on Skool</p>
-  <div class="cta-block">
-    <h2 class="reveal reveal-d1">Come grow<br>something<br><em>with me.</em></h2>
-    <div class="cta-right reveal reveal-d2">
-      <div class="free-tier-block">
-        <p class="free-tier-label">Start here — it's free</p>
-        <p class="free-tier-desc">Weekly herb guides, honest farm dispatches, cream recipes, and a community of people making things with their hands. No card. No commitment. Just come in.</p>
-      </div>
-      <div class="paid-tiers-hint">
-        <span>Want to go deeper?</span>
-        <span>Groeiers €9/mo · Makers €29/mo — upgrade any time inside.</span>
-      </div>
-      <p class="animals-note">A goat called Jimmy who respects nothing. A labrador called Boogie who is theoretically helping.</p>
-      <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
-        Join the community
+    <div class="hero-cta-wrap l4">
+      <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="cta-btn" target="_blank">
+        Join free — no card needed
         <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
+      <span class="hero-reassure">Free forever · No spam · Leave any time</span>
     </div>
+  </div>
+  <div class="hero-scroll l5">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- ── PROMISE ────────────────────────────────────── -->
+<section class="promise">
+  <div class="container">
+    <p class="reveal">
+      You don't need a new lifestyle. You need one Saturday morning, one plant, and someone to show you what to do with it.
+      <span>— Sandra, In the Flemish Ardennes</span>
+    </p>
+  </div>
+</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-label reveal">About Sandra</p>
-  <div class="about-grid">
-    <div class="about-image-slot reveal reveal-d1">
-      <img src="portrait.jpeg" alt="Sandra Pilarczyk, In the Flemish Ardennes">
+<!-- ── BENEFITS ───────────────────────────────────── -->
+<section class="benefits">
+  <div class="container">
+    <div class="benefits-header reveal">
+      <h2>Here's what you get<br><em>the moment you join.</em></h2>
+      <p>No overwhelm. No all-or-nothing. Just three things that actually work on a normal week.</p>
     </div>
-    <div class="about-text reveal reveal-d2">
-      <h2>I left 4-star hotels<br>for <em>a house with weeds.</em></h2>
-      <p>Twenty-five years managing luxury hotels. Then Steven and I bought a farmhouse in the Flemish Ardennes — technically on purpose, emotionally an accident.</p>
-      <p>Turns out I grow weeds considerably better than vegetables. The calendula is thriving. The carrots are still a work in progress. I'm documenting all of it.</p>
-      <p><strong>If I can make a healing balm from a weed, so can you.</strong></p>
-      <div class="about-cta">
-        <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
-          Join free
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <span class="about-cta-sub">@intheflemishardennes on Instagram</span>
+    <div class="benefits-list">
+      <div class="benefit reveal reveal-d1">
+        <div class="benefit-icon">🌿</div>
+        <div class="benefit-text">
+          <strong>The Honest Weed Guide</strong>
+          <p>What the science actually says about the plants already growing in your garden. No hype. No wishful thinking. Just what works.</p>
+        </div>
+      </div>
+      <div class="benefit reveal reveal-d2">
+        <div class="benefit-icon">🧪</div>
+        <div class="benefit-text">
+          <strong>The Arrival Oil</strong>
+          <p>Make your first herb oil this weekend. One plant. Wilt overnight, infuse Sunday morning. Something real in a bottle to show for it.</p>
+        </div>
+      </div>
+      <div class="benefit reveal reveal-d3">
+        <div class="benefit-icon">🌼</div>
+        <div class="benefit-text">
+          <strong>Weekend Garden Rituals</strong>
+          <p>One project, one weekend. Sized for real life — not for people who quit their job to homestead.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-block reveal">
-    <h2>Start for <em>free.</em><br>Leave any time.</h2>
-    <p>No credit card. No commitment. Just weekly herb guides, honest farm updates, and a community of people making things with their hands.</p>
-    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
-      Join the community — it's free
-      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-    <a href="mailto:hello@intheflemishardennes.be" class="contact-email-link">Or send me a message directly ↗</a>
+<!-- ── TESTIMONIAL ─────────────────────────────────── -->
+<section class="testimonial">
+  <div class="container">
+    <blockquote class="reveal">
+      I used your recipe, harvested, slow cooked, filtered, pressed, put the oil in a little bottle and used it! The house smelled amazing, my hair smells and feels great. I got my self care hair routine for the weekend!
+    </blockquote>
+    <div class="testimonial-author reveal reveal-d1">
+      <span class="testimonial-name">Johanna Vaudran</span>
+      <span class="testimonial-detail">Community member · Made her first hair oil</span>
+    </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- ── OBJECTION KILLER ────────────────────────────── -->
+<section class="objection">
+  <div class="container">
+    <p class="reveal">
+      <em>You don't need a big garden, special equipment, or a free weekend.</em><br>
+      You need <strong>ten minutes to read this</strong> and one plant you probably already have.
+    </p>
+  </div>
+</section>
+
+<!-- ── FAQ ────────────────────────────────────────── -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-header reveal">
+      <h2>Good questions.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">
+          Is it really free?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — the free tier is free forever. You get the Honest Weed Guide, the Arrival Oil recipe, farm updates, and the full community. No credit card, no trial period, no catch. If you ever want to go deeper there are paid tiers, but the free tier is genuinely useful on its own.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          I have no garden. Can I still join?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes. A windowsill pot of rosemary counts. A bag of dried herbs from the market counts. You don't need land — you need curiosity and ten minutes.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          I'm busy. How much time does this actually take?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">The Arrival Oil takes one weekend — herbs wilt overnight for 12 hours, then infuse for a couple more. Mostly waiting. Weekend Rituals are one Saturday project. This community is built around real life, not a fantasy version of it.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">
+          Who is Sandra?
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">I ran 4-star hotels for 25 years. Then Steven and I bought a farmhouse in the Flemish Ardennes — accidentally grew more weeds than vegetables — and started making healing creams and herb oils from scratch. I'm not a herbalist with a certificate. I'm someone who figured it out and is documenting all of it honestly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ───────────────────────────────────── -->
+<section class="final-cta">
+  <div class="container">
+    <h2 class="reveal">Stop saving it<br>for <em>later.</em></h2>
+    <p class="reveal reveal-d1">Join free. Make something this weekend. The weeds in your garden have been waiting long enough.</p>
+    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="cta-btn reveal reveal-d2" target="_blank">
+      Join free — no card needed
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="final-cta-reassure reveal reveal-d3">Free forever · No spam · Leave any time</p>
+  </div>
+</section>
 
 <footer>
-  <span>© 2026 In the Flemish Ardennes</span>
-  <a href="https://instagram.com/intheflemishardennes" target="_blank">@intheflemishardennes</a>
+  © 2026 In the Flemish Ardennes · <a href="https://instagram.com/intheflemishardennes" style="color:inherit">@intheflemishardennes</a>
 </footer>
 
 <script>
+  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -773,9 +666,29 @@
         observer.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
-
+  }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').style.maxHeight = '0';
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
 </script>
 
 </body>
