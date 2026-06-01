@@ -518,6 +518,84 @@
     footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 1.5rem; }
   }
 
+
+  /* ─── WHAT CTA ───────────────────────────────────────────── */
+  .what-cta {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  /* ─── STRIP CAPTION ─────────────────────────────────────── */
+  .strip-caption {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2.5rem 0;
+    font-size: var(--text-sm);
+    color: var(--stone);
+    font-style: italic;
+    letter-spacing: 0.03em;
+  }
+
+  /* ─── FREE TIER BLOCK ────────────────────────────────────── */
+  .free-tier-block {
+    background: var(--linen);
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.25rem;
+  }
+  .free-tier-label {
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--herb);
+    margin-bottom: 0.6rem;
+    font-weight: 400;
+  }
+  .free-tier-desc {
+    font-size: var(--text-sm);
+    color: var(--stone);
+    line-height: 1.8;
+  }
+
+  .paid-tiers-hint {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .paid-tiers-hint span:first-child {
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .paid-tiers-hint span:last-child {
+    font-size: var(--text-sm);
+    color: var(--stone);
+  }
+
+  /* ─── ABOUT CTA ──────────────────────────────────────────── */
+  .about-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .about-cta-sub {
+    font-size: var(--text-sm);
+    color: var(--stone);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── CONTACT EMAIL LINK ─────────────────────────────────── */
+  .contact-email-link {
+    font-size: var(--text-sm);
+    color: var(--stone);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .contact-email-link:hover { color: var(--ink); }
   /* ─── HERO LOAD ANIMATIONS ───────────────────────────────── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -598,6 +676,12 @@
       </div>
     </div>
   </div>
+  <div class="what-cta reveal reveal-d3">
+    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
+      Start for free — no card needed
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -606,6 +690,7 @@
 <div class="photo-strip">
   <img src="rosemary.jpeg" alt="Fresh rosemary drying" class="reveal reveal-d1">
   <img src="balm.jpeg" alt="Calendula healing balm" class="reveal reveal-d2">
+  <p class="strip-caption reveal">Rosemary from the garden. Balm from the rosemary. You can do this too.</p>
 </div>
 
 <div class="divider"></div>
@@ -616,22 +701,13 @@
   <div class="cta-block">
     <h2 class="reveal reveal-d1">Come grow<br>something<br><em>with me.</em></h2>
     <div class="cta-right reveal reveal-d2">
-      <div class="community-tiers">
-        <div class="tier">
-          <span class="tier-name">Free</span>
-          <span class="tier-desc">Farm updates, herb spotlights, community</span>
-          <span class="tier-price">Free forever</span>
-        </div>
-        <div class="tier">
-          <span class="tier-name">Groeiers</span>
-          <span class="tier-desc">Full growing calendar, cream recipe vault, monthly live Q&A</span>
-          <span class="tier-price">€9/month</span>
-        </div>
-        <div class="tier">
-          <span class="tier-name">Makers</span>
-          <span class="tier-desc">Monthly masterclass, personal recipe feedback, EU compliance help</span>
-          <span class="tier-price">€29/month</span>
-        </div>
+      <div class="free-tier-block">
+        <p class="free-tier-label">Start here — it's free</p>
+        <p class="free-tier-desc">Weekly herb guides, honest farm dispatches, cream recipes, and a community of people making things with their hands. No card. No commitment. Just come in.</p>
+      </div>
+      <div class="paid-tiers-hint">
+        <span>Want to go deeper?</span>
+        <span>Groeiers €9/mo · Makers €29/mo — upgrade any time inside.</span>
       </div>
       <p class="animals-note">A goat called Jimmy who respects nothing. A labrador called Boogie who is theoretically helping.</p>
       <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
@@ -652,15 +728,16 @@
       <img src="portrait.jpeg" alt="Sandra Pilarczyk, In the Flemish Ardennes">
     </div>
     <div class="about-text reveal reveal-d2">
-      <h2>Self-sufficiency<br>for <em>normal people.</em></h2>
-      <p>Still watching Netflix. Still drinking wine.</p>
-      <p>Just also making things from the weeds in your garden.</p>
-      <p>No lifestyle overhaul. No flower power. Just the plants at your feet and what the science says about them.</p>
-      <p><strong>Make something useful from your garden this weekend.</strong></p>
-      <div class="about-detail">
-        <span>Oudenaarde, Flemish Ardennes, Belgium</span>
-        <a href="https://instagram.com/intheflemishardennes" target="_blank">@intheflemishardennes on Instagram ↗</a>
-        <a href="mailto:hello@intheflemishardennes.be">hello@intheflemishardennes.be</a>
+      <h2>I left 4-star hotels<br>for <em>a house with weeds.</em></h2>
+      <p>Twenty-five years managing luxury hotels. Then Steven and I bought a farmhouse in the Flemish Ardennes — technically on purpose, emotionally an accident.</p>
+      <p>Turns out I grow weeds considerably better than vegetables. The calendula is thriving. The carrots are still a work in progress. I'm documenting all of it.</p>
+      <p><strong>If I can make a healing balm from a weed, so can you.</strong></p>
+      <div class="about-cta">
+        <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
+          Join free
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <span class="about-cta-sub">@intheflemishardennes on Instagram</span>
       </div>
     </div>
   </div>
@@ -671,15 +748,13 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-block reveal">
-    <h2>Let's grow<br><em>something together.</em></h2>
-    <p>Questions about the farm, the creams, the community, or just want to say hello — I read every message.</p>
-    <div class="contact-buttons">
-      <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
-        Join the community
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <a href="mailto:hello@intheflemishardennes.be" class="btn-outline">Send a message</a>
-    </div>
+    <h2>Start for <em>free.</em><br>Leave any time.</h2>
+    <p>No credit card. No commitment. Just weekly herb guides, honest farm updates, and a community of people making things with their hands.</p>
+    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="btn-primary" target="_blank">
+      Join the community — it's free
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <a href="mailto:hello@intheflemishardennes.be" class="contact-email-link">Or send me a message directly ↗</a>
   </div>
 </section>
 
