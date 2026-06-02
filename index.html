@@ -6,92 +6,105 @@
 <title>In the Flemish Ardennes — Join Free</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Instrument+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg:       #F8F5F0;
-    --ink:      #1E1C18;
-    --herb:     #3D6142;
-    --stone:    #7A7570;
-    --linen:    #EDE9E2;
-    --white:    #FDFCF9;
-    --serif:    'Playfair Display', Georgia, serif;
-    --sans:     'Instrument Sans', sans-serif;
+    --p: #FAF7F2;
+    --i: #18180F;
+    --g: #2C5C30;
+    --s: #9A9189;
+    --l: #E8E3DA;
+    --w: #FDFBF8;
+    --serif: 'Cormorant', Georgia, serif;
+    --sans:  'Jost', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--bg);
-    color: var(--ink);
+    background: var(--p);
+    color: var(--i);
     font-family: var(--sans);
     font-weight: 300;
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 1.75;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ── UTILITIES ─────────────────────────────────── */
   .container {
     width: 100%;
-    max-width: 640px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
-  .divider {
-    width: 48px;
-    height: 1.5px;
-    background: var(--herb);
-    margin: 0 auto;
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--s);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--l);
   }
 
-  /* ── CTA BUTTON ────────────────────────────────── */
+  /* ── CTA BUTTON ─────────────────────────────────── */
   .cta-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: var(--herb);
-    color: var(--white);
+    background: var(--g);
+    color: var(--w);
     font-family: var(--sans);
-    font-size: 0.875rem;
+    font-size: 0.7rem;
     font-weight: 400;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 1.1rem 2.5rem;
-    min-height: 54px;
-    min-width: 220px;
+    padding: 1.05rem 2.5rem;
+    min-height: 52px;
+    min-width: 240px;
     border: none;
     cursor: pointer;
     transition: background 0.2s, transform 0.15s;
   }
-  .cta-btn:hover { background: #2e4a32; transform: translateY(-2px); }
+  .cta-btn:hover { background: #1f4223; transform: translateY(-2px); }
   .cta-btn:active { transform: translateY(0); }
   .cta-btn svg {
-    width: 14px; height: 14px;
+    width: 13px; height: 13px;
     stroke: currentColor; fill: none; stroke-width: 2;
     transition: transform 0.2s;
     flex-shrink: 0;
   }
   .cta-btn:hover svg { transform: translateX(3px); }
 
-  /* ── HERO ──────────────────────────────────────── */
+  .micro {
+    font-size: 0.7rem;
+    color: var(--s);
+    letter-spacing: 0.06em;
+    margin-top: 0.75rem;
+  }
+
+  /* ── HERO ───────────────────────────────────────── */
   .hero {
     min-height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 5rem 1.5rem 4rem;
+    padding: 5rem 1.5rem 4.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-  }
-
-  .hero {
     background-image: url('farm.jpeg');
     background-size: cover;
     background-position: center 30%;
@@ -104,58 +117,52 @@
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(248,245,240,0.92) 0%,
-      rgba(248,245,240,0.88) 50%,
-      rgba(248,245,240,0.95) 100%
+      rgba(250,247,242,0.94) 0%,
+      rgba(250,247,242,0.90) 55%,
+      rgba(250,247,242,0.96) 100%
     );
     pointer-events: none;
   }
 
-  .hero-wordmark {
-    font-family: var(--serif);
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--stone);
-    letter-spacing: 0.06em;
-    margin-bottom: 3.5rem;
+  .hero > * { position: relative; z-index: 1; }
+
+  .hero-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--s);
+    margin-bottom: 2rem;
   }
 
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(2.4rem, 8vw, 3.6rem);
-    font-weight: 400;
-    line-height: 1.1;
+    font-size: clamp(2.6rem, 9vw, 4rem);
+    font-weight: 300;
+    line-height: 1.05;
     letter-spacing: -0.02em;
-    color: var(--ink);
+    color: var(--i);
     margin-bottom: 1.75rem;
   }
 
   .hero h1 em {
     font-style: italic;
-    color: var(--herb);
+    color: var(--g);
   }
 
   .hero-sub {
-    font-size: 1.05rem;
-    color: var(--stone);
-    line-height: 1.75;
-    max-width: 420px;
+    font-size: 1rem;
+    color: var(--s);
+    line-height: 1.85;
+    max-width: 400px;
     margin: 0 auto 2.5rem;
   }
 
-  .hero-sub strong { color: var(--ink); font-weight: 400; }
+  .hero-sub strong { color: var(--i); font-weight: 400; }
 
   .hero-cta-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-  }
-
-  .hero-reassure {
-    font-size: 0.78rem;
-    color: var(--stone);
-    letter-spacing: 0.04em;
   }
 
   .hero-scroll {
@@ -166,224 +173,204 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
+    gap: 0.35rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--stone);
+    color: var(--s);
+    z-index: 1;
   }
 
-  @keyframes bounce {
+  @keyframes nudge {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(5px); }
+    50% { transform: translateY(4px); }
   }
   .hero-scroll svg {
-    width: 16px; height: 16px;
-    stroke: var(--stone); fill: none; stroke-width: 1.5;
-    animation: bounce 2s ease-in-out infinite;
+    width: 14px; height: 14px;
+    stroke: var(--s); fill: none; stroke-width: 1.5;
+    animation: nudge 2.2s ease-in-out infinite;
   }
 
-  /* ── PROMISE ───────────────────────────────────── */
+  /* ── PROMISE ────────────────────────────────────── */
   .promise {
-    background: var(--herb);
+    background: var(--g);
     padding: 4rem 1.5rem;
     text-align: center;
   }
 
   .promise p {
     font-family: var(--serif);
-    font-size: clamp(1.3rem, 4vw, 1.7rem);
-    font-weight: 400;
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-weight: 300;
     font-style: italic;
-    color: var(--white);
-    line-height: 1.5;
-    max-width: 520px;
+    color: var(--w);
+    line-height: 1.6;
+    max-width: 480px;
     margin: 0 auto;
   }
 
   .promise p span {
+    display: block;
     font-style: normal;
-    opacity: 0.75;
-    font-size: 0.85em;
+    opacity: 0.55;
+    font-size: 0.78em;
+    margin-top: 1rem;
+    letter-spacing: 0.06em;
   }
 
-  /* ── BENEFITS ──────────────────────────────────── */
+  /* ── BENEFITS ───────────────────────────────────── */
   .benefits {
-    padding: 5rem 1.5rem;
+    padding: 5.5rem 1.5rem;
+    border-bottom: 0.5px solid var(--l);
   }
 
-  .benefits-header {
+  .benefits-intro {
     text-align: center;
     margin-bottom: 3.5rem;
   }
 
-  .benefits-header h2 {
+  .benefits-intro h2 {
     font-family: var(--serif);
-    font-size: clamp(1.6rem, 5vw, 2.2rem);
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
   }
-  .benefits-header h2 em { font-style: italic; color: var(--herb); }
+  .benefits-intro h2 em { font-style: italic; color: var(--g); }
 
-  .benefits-header p {
-    font-size: 0.95rem;
-    color: var(--stone);
-    max-width: 400px;
+  .benefits-intro p {
+    font-size: 0.88rem;
+    color: var(--s);
+    max-width: 360px;
     margin: 0 auto;
   }
 
   .benefits-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    max-width: 540px;
+    max-width: 520px;
     margin: 0 auto;
   }
 
   .benefit {
     display: grid;
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: 40px 1fr;
     gap: 1.25rem;
     align-items: start;
-    padding: 2rem 0;
-    border-bottom: 0.5px solid var(--linen);
+    padding: 1.75rem 0;
+    border-bottom: 0.5px solid var(--l);
   }
   .benefit:first-child { padding-top: 0; }
-  .benefit:last-child { border-bottom: none; }
+  .benefit:last-child { border-bottom: none; padding-bottom: 0; }
 
   .benefit-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--linen);
+    width: 40px;
+    height: 40px;
+    background: var(--l);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1rem;
     flex-shrink: 0;
-    margin-top: 0.15rem;
   }
 
-  .benefit-text strong {
-    display: block;
+  .benefit-title {
     font-family: var(--serif);
     font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
+    font-weight: 400;
+    color: var(--i);
+    margin: 0 0 0.3rem;
     line-height: 1.3;
   }
 
-  .benefit-text p {
-    font-size: 0.92rem;
-    color: var(--stone);
-    line-height: 1.75;
+  .benefit-desc {
+    font-size: 0.85rem;
+    color: var(--s);
+    line-height: 1.8;
+    margin: 0;
   }
 
-  /* ── TESTIMONIAL ───────────────────────────────── */
+  /* ── TESTIMONIAL ────────────────────────────────── */
   .testimonial {
-    background: var(--linen);
-    padding: 4.5rem 1.5rem;
+    background: var(--l);
+    padding: 5rem 1.5rem;
     text-align: center;
   }
 
   .testimonial blockquote {
     font-family: var(--serif);
-    font-size: clamp(1.1rem, 3.5vw, 1.35rem);
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    font-weight: 300;
     font-style: italic;
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.65;
-    max-width: 520px;
+    color: var(--i);
+    line-height: 1.7;
+    max-width: 480px;
     margin: 0 auto 2rem;
     position: relative;
+    padding-top: 1.5rem;
   }
 
   .testimonial blockquote::before {
     content: '\201C';
-    font-size: 4rem;
-    color: var(--herb);
-    opacity: 0.25;
-    line-height: 0;
+    font-size: 5rem;
+    color: var(--g);
+    opacity: 0.15;
     position: absolute;
-    top: 0.5rem;
-    left: -0.5rem;
+    top: -0.5rem;
+    left: -0.25rem;
+    line-height: 1;
     font-family: var(--serif);
   }
 
-  .testimonial-author {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-  }
-
   .testimonial-name {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 400;
-    color: var(--ink);
-    letter-spacing: 0.04em;
+    color: var(--i);
+    letter-spacing: 0.06em;
   }
 
   .testimonial-detail {
-    font-size: 0.78rem;
-    color: var(--stone);
+    font-size: 0.72rem;
+    color: var(--s);
     letter-spacing: 0.04em;
+    margin-top: 0.25rem;
   }
 
-  /* ── OBJECTION KILLER ──────────────────────────── */
+  /* ── OBJECTION ──────────────────────────────────── */
   .objection {
-    padding: 4rem 1.5rem;
+    padding: 4.5rem 1.5rem;
     text-align: center;
-    border-top: 0.5px solid var(--linen);
-    border-bottom: 0.5px solid var(--linen);
+    border-bottom: 0.5px solid var(--l);
   }
 
   .objection p {
     font-family: var(--serif);
-    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
-    font-weight: 400;
-    line-height: 1.55;
-    max-width: 480px;
+    font-size: clamp(1.1rem, 3.5vw, 1.45rem);
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 440px;
     margin: 0 auto;
   }
 
-  .objection p em { font-style: italic; color: var(--herb); }
-  .objection p strong { font-weight: 500; }
+  .objection em { font-style: italic; color: var(--g); }
+  .objection strong { font-weight: 400; color: var(--i); }
 
-  /* ── FAQ ───────────────────────────────────────── */
+  /* ── FAQ ────────────────────────────────────────── */
   .faq {
-    padding: 5rem 1.5rem;
-  }
-
-  .faq-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .faq-header h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: 400;
+    padding: 5.5rem 1.5rem;
+    border-bottom: 0.5px solid var(--l);
   }
 
   .faq-list {
-    max-width: 540px;
+    max-width: 520px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
   }
 
-  .faq-item {
-    border-bottom: 0.5px solid var(--linen);
-  }
+  .faq-item { border-bottom: 0.5px solid var(--l); }
 
   .faq-question {
     width: 100%;
     background: none;
     border: none;
-    padding: 1.4rem 0;
+    padding: 1.35rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -391,22 +378,20 @@
     cursor: pointer;
     text-align: left;
     font-family: var(--sans);
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 400;
-    color: var(--ink);
-    line-height: 1.4;
+    color: var(--i);
+    line-height: 1.45;
   }
 
   .faq-question svg {
-    width: 16px; height: 16px;
-    stroke: var(--stone); fill: none; stroke-width: 2;
+    width: 14px; height: 14px;
+    stroke: var(--s); fill: none; stroke-width: 2;
     flex-shrink: 0;
     transition: transform 0.3s ease;
   }
 
-  .faq-item.open .faq-question svg {
-    transform: rotate(45deg);
-  }
+  .faq-item.open .faq-question svg { transform: rotate(45deg); }
 
   .faq-answer {
     max-height: 0;
@@ -415,111 +400,99 @@
   }
 
   .faq-answer-inner {
-    padding-bottom: 1.4rem;
-    font-size: 0.9rem;
-    color: var(--stone);
-    line-height: 1.8;
+    padding-bottom: 1.35rem;
+    font-size: 0.85rem;
+    color: var(--s);
+    line-height: 1.85;
   }
 
-  .faq-answer-inner a {
-    color: var(--herb);
-    text-decoration: none;
-  }
-  .faq-answer-inner a:hover { text-decoration: underline; }
-
-  /* ── FINAL CTA ─────────────────────────────────── */
+  /* ── FINAL CTA ──────────────────────────────────── */
   .final-cta {
-    background: var(--ink);
-    padding: 5rem 1.5rem;
+    background: var(--i);
+    padding: 6rem 1.5rem;
     text-align: center;
   }
 
   .final-cta h2 {
     font-family: var(--serif);
-    font-size: clamp(1.8rem, 6vw, 2.8rem);
-    font-weight: 400;
-    color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
+    font-size: clamp(2rem, 7vw, 3.2rem);
+    font-weight: 300;
+    color: var(--w);
+    line-height: 1.08;
+    margin-bottom: 1rem;
   }
 
   .final-cta h2 em { font-style: italic; color: #8fb893; }
 
   .final-cta p {
-    font-size: 0.95rem;
-    color: rgba(253,252,249,0.6);
-    max-width: 360px;
+    font-size: 0.88rem;
+    color: rgba(253,251,248,0.5);
+    max-width: 320px;
     margin: 0 auto 2.5rem;
-    line-height: 1.75;
+    line-height: 1.85;
   }
 
   .final-cta .cta-btn {
-    background: var(--white);
-    color: var(--ink);
+    background: var(--w);
+    color: var(--i);
   }
   .final-cta .cta-btn:hover { background: #EDE9E2; }
+  .final-cta .micro { color: rgba(253,251,248,0.3); }
 
-  .final-cta-reassure {
-    margin-top: 1rem;
-    font-size: 0.78rem;
-    color: rgba(253,252,249,0.4);
-    letter-spacing: 0.04em;
-  }
-
-  /* ── FOOTER ────────────────────────────────────── */
+  /* ── FOOTER ─────────────────────────────────────── */
   footer {
-    padding: 1.75rem 1.5rem;
+    padding: 2rem 1.5rem;
     text-align: center;
-    font-size: 0.75rem;
-    color: var(--stone);
-    letter-spacing: 0.04em;
-    border-top: 0.5px solid var(--linen);
+    font-size: 0.7rem;
+    color: var(--s);
+    letter-spacing: 0.06em;
+    border-top: 0.5px solid var(--l);
   }
+  footer a { color: var(--s); text-decoration: none; }
+  footer a:hover { color: var(--i); }
 
-  /* ── REVEAL ANIMATIONS ─────────────────────────── */
+  /* ── REVEAL ─────────────────────────────────────── */
   .reveal {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(18px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
+  .d1 { transition-delay: 0.1s; }
+  .d2 { transition-delay: 0.22s; }
+  .d3 { transition-delay: 0.34s; }
 
-  /* ── HERO LOAD ─────────────────────────────────── */
+  /* ── HERO LOAD ──────────────────────────────────── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-  .l1 { animation: fadeUp 0.8s ease both; }
-  .l2 { animation: fadeUp 0.8s 0.15s ease both; }
-  .l3 { animation: fadeUp 0.8s 0.3s ease both; }
-  .l4 { animation: fadeUp 0.8s 0.45s ease both; }
-  .l5 { animation: fadeUp 0.8s 0.6s ease both; }
+  .l1 { animation: fadeUp 0.9s ease both; }
+  .l2 { animation: fadeUp 0.9s 0.12s ease both; }
+  .l3 { animation: fadeUp 0.9s 0.26s ease both; }
+  .l4 { animation: fadeUp 0.9s 0.42s ease both; }
+  .l5 { animation: fadeUp 0.9s 0.58s ease both; }
 </style>
 </head>
 <body>
 
-<!-- ── HERO ──────────────────────────────────────── -->
+<!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <p class="hero-wordmark l1">In the Flemish Ardennes</p>
-    <h1 class="l2">
-      Stopped saving reels.<br>
-      Started making things.<br>
-      <em>Took one weekend.</em>
-    </h1>
-    <p class="hero-sub l3">
-      A free community for busy people who want to grow something, make something, and actually <strong>use what's already in their garden.</strong>
-    </p>
-    <div class="hero-cta-wrap l4">
-      <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="cta-btn" target="_blank">
-        Join free — no card needed
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-      <span class="hero-reassure">Free forever · No spam · Leave any time</span>
-    </div>
+  <p class="hero-eyebrow l1">In the Flemish Ardennes</p>
+  <h1 class="l2">
+    Stopped saving reels.<br>
+    Started making things.<br>
+    <em>Took one weekend.</em>
+  </h1>
+  <p class="hero-sub l3">
+    A free community for busy people who want to grow something, make something, and <strong>use what's already in their garden.</strong>
+  </p>
+  <div class="hero-cta-wrap l4">
+    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="cta-btn" target="_blank">
+      Join free — no card needed
+      <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="micro">Free forever · No spam · Leave any time</p>
   </div>
   <div class="hero-scroll l5">
     <span>Scroll</span>
@@ -527,7 +500,7 @@
   </div>
 </section>
 
-<!-- ── PROMISE ────────────────────────────────────── -->
+<!-- PROMISE -->
 <section class="promise">
   <div class="container">
     <p class="reveal">
@@ -537,68 +510,66 @@
   </div>
 </section>
 
-<!-- ── BENEFITS ───────────────────────────────────── -->
+<!-- BENEFITS -->
 <section class="benefits">
   <div class="container">
-    <div class="benefits-header reveal">
+    <div class="benefits-intro reveal">
       <h2>Here's what you get<br><em>the moment you join.</em></h2>
-      <p>No overwhelm. No all-or-nothing. Just three things that actually work on a normal week.</p>
+      <p>No overwhelm. No all-or-nothing. Just three things that work on a normal week.</p>
     </div>
     <div class="benefits-list">
-      <div class="benefit reveal reveal-d1">
+      <div class="benefit reveal d1">
         <div class="benefit-icon">🌿</div>
-        <div class="benefit-text">
-          <strong>The Honest Weed Guide</strong>
-          <p>What the science actually says about the plants already growing in your garden. No hype. No wishful thinking. Just what works.</p>
+        <div>
+          <p class="benefit-title">The Honest Weed Guide</p>
+          <p class="benefit-desc">What the science actually says about the plants already growing in your garden. No hype. No wishful thinking. Just what works.</p>
         </div>
       </div>
-      <div class="benefit reveal reveal-d2">
+      <div class="benefit reveal d2">
         <div class="benefit-icon">🧪</div>
-        <div class="benefit-text">
-          <strong>The Arrival Oil</strong>
-          <p>Make your first herb oil this weekend. One plant. Wilt overnight, infuse Sunday morning. Something real in a bottle to show for it.</p>
+        <div>
+          <p class="benefit-title">The Arrival Oil</p>
+          <p class="benefit-desc">Make your first herb oil this weekend. Wilt overnight, infuse Sunday morning. Something real in a bottle to show for it.</p>
         </div>
       </div>
-      <div class="benefit reveal reveal-d3">
+      <div class="benefit reveal d3">
         <div class="benefit-icon">🌼</div>
-        <div class="benefit-text">
-          <strong>Weekend Garden Rituals</strong>
-          <p>One project, one weekend. Sized for real life — not for people who quit their job to homestead.</p>
+        <div>
+          <p class="benefit-title">Weekend Garden Rituals</p>
+          <p class="benefit-desc">One project, one weekend. Sized for real life — not for people who quit their job to homestead.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── TESTIMONIAL ─────────────────────────────────── -->
+<!-- TESTIMONIAL -->
 <section class="testimonial">
   <div class="container">
     <blockquote class="reveal">
-      I used your recipe, harvested, slow cooked, filtered, pressed, put the oil in a little bottle and used it! The house smelled amazing, my hair smells and feels great. I got my self care hair routine for the weekend!
+      I used your recipe, harvested, slow cooked, filtered, pressed, put the oil in a little bottle and used it! The house smelled amazing, my hair smells and feels great. I got my self care hair routine for the weekend.
     </blockquote>
-    <div class="testimonial-author reveal reveal-d1">
-      <span class="testimonial-name">Johanna Vaudran</span>
-      <span class="testimonial-detail">Community member · Made her first hair oil</span>
+    <div class="reveal d1">
+      <p class="testimonial-name">Johanna Vaudran</p>
+      <p class="testimonial-detail">Community member · Made her first hair oil</p>
     </div>
   </div>
 </section>
 
-<!-- ── OBJECTION KILLER ────────────────────────────── -->
+<!-- OBJECTION -->
 <section class="objection">
   <div class="container">
     <p class="reveal">
-      <em>You don't need a big garden, special equipment, or a free weekend.</em><br>
-      You need <strong>ten minutes to read this</strong> and one plant you probably already have.
+      <em>No garden needed. No special equipment. No free weekend.</em><br>
+      Just <strong>ten minutes and one plant</strong> you probably already have.
     </p>
   </div>
 </section>
 
-<!-- ── FAQ ────────────────────────────────────────── -->
+<!-- FAQ -->
 <section class="faq">
   <div class="container">
-    <div class="faq-header reveal">
-      <h2>Good questions.</h2>
-    </div>
+    <p class="section-label reveal">Good questions</p>
     <div class="faq-list">
       <div class="faq-item">
         <button class="faq-question">
@@ -606,7 +577,7 @@
           <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Yes — the free tier is free forever. You get the Honest Weed Guide, the Arrival Oil recipe, farm updates, and the full community. No credit card, no trial period, no catch. If you ever want to go deeper there are paid tiers, but the free tier is genuinely useful on its own.</div>
+          <div class="faq-answer-inner">Yes — free forever. You get the Honest Weed Guide, the Arrival Oil recipe, farm updates, and the full community. No credit card, no trial period, no catch. Paid tiers exist if you want to go deeper, but the free tier stands on its own.</div>
         </div>
       </div>
       <div class="faq-item">
@@ -620,7 +591,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-question">
-          I'm busy. How much time does this actually take?
+          How much time does this actually take?
           <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="faq-answer">
@@ -640,25 +611,24 @@
   </div>
 </section>
 
-<!-- ── FINAL CTA ───────────────────────────────────── -->
+<!-- FINAL CTA -->
 <section class="final-cta">
   <div class="container">
     <h2 class="reveal">Stop saving it<br>for <em>later.</em></h2>
-    <p class="reveal reveal-d1">Join free. Make something this weekend. The weeds in your garden have been waiting long enough.</p>
-    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="cta-btn reveal reveal-d2" target="_blank">
+    <p class="reveal d1">Join free. Make something this weekend. The weeds in your garden have been waiting long enough.</p>
+    <a href="https://www.skool.com/the-flemish-ardennes-life-5276/about" class="cta-btn reveal d2" target="_blank">
       Join free — no card needed
       <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
     </a>
-    <p class="final-cta-reassure reveal reveal-d3">Free forever · No spam · Leave any time</p>
+    <p class="micro reveal d3">Free forever · No spam · Leave any time</p>
   </div>
 </section>
 
 <footer>
-  © 2026 In the Flemish Ardennes · <a href="https://instagram.com/intheflemishardennes" style="color:inherit">@intheflemishardennes</a>
+  © 2026 In the Flemish Ardennes · <a href="https://instagram.com/intheflemishardennes">@intheflemishardennes</a>
 </footer>
 
 <script>
-  // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -669,20 +639,15 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // FAQ accordion
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
       const answer = item.querySelector('.faq-answer');
       const isOpen = item.classList.contains('open');
-
-      // Close all
       document.querySelectorAll('.faq-item').forEach(i => {
         i.classList.remove('open');
         i.querySelector('.faq-answer').style.maxHeight = '0';
       });
-
-      // Open clicked if it was closed
       if (!isOpen) {
         item.classList.add('open');
         answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -690,6 +655,5 @@
     });
   });
 </script>
-
 </body>
 </html>
